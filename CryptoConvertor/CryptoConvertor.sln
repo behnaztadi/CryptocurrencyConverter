@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{824A4BEC-66CB-44CC-951E-809B9C39B5CF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{431BD958-7C80-412C-BFF2-59A5F607BE6C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{07FEE36C-6F2C-4EB6-85A3-0EC8E8ACDC37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoConvertor.Services.ExchnageRates", "CryptoConvertor.Services.ExchnageRates\CryptoConvertor.Services.ExchnageRates.csproj", "{81688864-528E-4B43-8E45-9390D33F5BE0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{81688864-528E-4B43-8E45-9390D33F5BE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81688864-528E-4B43-8E45-9390D33F5BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81688864-528E-4B43-8E45-9390D33F5BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81688864-528E-4B43-8E45-9390D33F5BE0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{81688864-528E-4B43-8E45-9390D33F5BE0} = {824A4BEC-66CB-44CC-951E-809B9C39B5CF}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6A5E52D8-B57F-4DDE-BA39-315E7EA38A1D}
+	EndGlobalSection
+EndGlobal
