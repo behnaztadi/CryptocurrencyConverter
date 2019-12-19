@@ -29,8 +29,10 @@ namespace CryptoConvertor.Services.ExchnageRates
                 .AddControllersAsServices()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
+            // TODO: extract it as a method 
             var containerBuilder = new ContainerBuilder();
             containerBuilder.RegisterType<TimeProvider>().As<ITimeProvider>();
+            containerBuilder.RegisterType<ExchangeRateApiLoader>().As<IExchangeRateApiLoader>();
             containerBuilder.RegisterType<ExchangeRateLoaderService>().As<IExchangeRateLoaderService>();
             containerBuilder.Populate(services);
 

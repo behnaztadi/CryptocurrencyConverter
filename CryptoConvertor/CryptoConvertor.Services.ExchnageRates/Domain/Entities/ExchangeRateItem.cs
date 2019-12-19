@@ -1,6 +1,6 @@
-﻿using CryptoConvertor.Services.ExchnageRates.Core.Exceptions;
+﻿using CryptoConvertor.Services.ExchnageRates.Domain.Exceptions;
 
-namespace CryptoConvertor.Services.ExchnageRates.Core.Entities
+namespace CryptoConvertor.Services.ExchnageRates.Domain.Entities
 {
     public class ExchangeRateItem
     {

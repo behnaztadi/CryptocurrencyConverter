@@ -1,4 +1,4 @@
-﻿using CryptoConvertor.Services.ExchnageRates.Core.Entities;
+﻿using CryptoConvertor.Services.ExchnageRates.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
