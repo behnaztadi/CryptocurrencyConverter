@@ -12,23 +12,10 @@ namespace CryptoConvertor.Services.ExchnageRates.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        IExchangeRateLoaderService _exchangeRateLoaderService;
-        public ValuesController(IExchangeRateLoaderService exchangeRateLoaderService)
-        {
-            _exchangeRateLoaderService = exchangeRateLoaderService;
-        }
-
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
-        {
-            var test = _exchangeRateLoaderService.LoadExchangeRates(new Currency("USD"),
-                   new List<Currency>
-                   {
-                   new Currency("EUR"),
-                   new Currency("AUD")
-                   });
-
+        {            
             return new string[] { "value1", "value2" };
         }
 
