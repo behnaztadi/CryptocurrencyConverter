@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoConvertor.Services.Cr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptocurrencyConverter.Common", "CryptocurrencyConverter.Common\CryptocurrencyConverter.Common.csproj", "{9E513CFF-7F84-4A59-BD4B-B8F3C56930E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoConvertor.Services.CryptoCurrency.Tests", "CryptoConvertor.Services.CryptoCurrency.Tests\CryptoConvertor.Services.CryptoCurrency.Tests.csproj", "{62B13C21-C982-4231-ABD7-4A5967A9F5F9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{9E513CFF-7F84-4A59-BD4B-B8F3C56930E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E513CFF-7F84-4A59-BD4B-B8F3C56930E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9E513CFF-7F84-4A59-BD4B-B8F3C56930E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62B13C21-C982-4231-ABD7-4A5967A9F5F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62B13C21-C982-4231-ABD7-4A5967A9F5F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62B13C21-C982-4231-ABD7-4A5967A9F5F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62B13C21-C982-4231-ABD7-4A5967A9F5F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{C05C6566-0E17-45F2-87EC-401A4F5001A0} = {431BD958-7C80-412C-BFF2-59A5F607BE6C}
 		{A5D8E7AA-D9ED-4964-B3D7-C0F7DFD96962} = {824A4BEC-66CB-44CC-951E-809B9C39B5CF}
 		{9E513CFF-7F84-4A59-BD4B-B8F3C56930E7} = {07FEE36C-6F2C-4EB6-85A3-0EC8E8ACDC37}
+		{62B13C21-C982-4231-ABD7-4A5967A9F5F9} = {431BD958-7C80-412C-BFF2-59A5F607BE6C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A5E52D8-B57F-4DDE-BA39-315E7EA38A1D}

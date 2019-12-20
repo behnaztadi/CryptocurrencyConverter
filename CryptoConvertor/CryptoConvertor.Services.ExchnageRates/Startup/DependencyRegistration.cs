@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CryptoConvertor.Services.ExchnageRates.Startup
+namespace CryptoConvertor.Services.ExchnageRates
 {
     public static class DependencyRegistration
     {

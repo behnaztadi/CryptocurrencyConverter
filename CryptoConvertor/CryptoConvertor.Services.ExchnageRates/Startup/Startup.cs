@@ -1,11 +1,6 @@
 ﻿using System;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using CryptoConvertor.Services.ExchnageRates.Application;
-using CryptoConvertor.Services.ExchnageRates.Application.Implementation;
-using CryptoConvertor.Services.ExchnageRates.Startup;
-using CryptocurrencyConverter.Common;
-using CryptocurrencyConverter.Common.Providers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -33,7 +28,7 @@ namespace CryptoConvertor.Services.ExchnageRates
 
             var containerBuilder = new ContainerBuilder();
             containerBuilder.RegisterAutofac(Configuration, services);
-            
+
             return new AutofacServiceProvider(containerBuilder.Build());
         }
 

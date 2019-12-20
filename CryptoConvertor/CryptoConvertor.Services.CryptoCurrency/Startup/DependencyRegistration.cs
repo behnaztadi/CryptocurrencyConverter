@@ -21,6 +21,8 @@ namespace CryptoConvertor.Services.CryptoCurrency
 
             builder.RegisterType<CryptocurrencyApiLoader>().As<ICryptocurrencyApiLoader>();
             builder.RegisterType<CryptoCurrencyLoaderService>().As<ICryptoCurrencyLoaderService>();
+            builder.RegisterType<CryptocurrencyCalculator>().As<ICryptocurrencyCalculator>();
+
             builder.Populate(services);
         }
     }
