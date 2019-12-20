@@ -1,5 +1,5 @@
 using CryptoConvertor.Services.ExchnageRates.Domain.Entities;
-using CryptoConvertor.Services.ExchnageRates.Infra;
+using CryptocurrencyConverter.Common.Providers;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using System;

@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Autofac;
+﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using CryptoConvertor.Services.CryptoCurrency.Application;
 using CryptoConvertor.Services.CryptoCurrency.Application.Implementation;
 using CryptoConvertor.Services.CryptoCurrency.Application.Implementation.CryptoCurrencyLoaderService;
-using CryptoConvertor.Services.CryptoCurrency.Infra;
+using CryptocurrencyConverter.Common;
+using CryptocurrencyConverter.Common.Providers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+using System;
 
 namespace CryptoConvertor.Services.CryptoCurrency
 {
@@ -37,9 +33,11 @@ namespace CryptoConvertor.Services.CryptoCurrency
 
             // TODO: extract it as a method 
             var containerBuilder = new ContainerBuilder();
-            containerBuilder.RegisterType<TimeProvider>().As<ITimeProvider>();
+            containerBuilder.RegisterModule(new CommonModule());
+
             containerBuilder.RegisterType<CryptocurrencyApiLoader>().As<ICryptocurrencyApiLoader>();
             containerBuilder.RegisterType<CryptoCurrencyLoaderService>().As<ICryptoCurrencyLoaderService>();
+
             containerBuilder.Populate(services);
 
             return new AutofacServiceProvider(containerBuilder.Build());

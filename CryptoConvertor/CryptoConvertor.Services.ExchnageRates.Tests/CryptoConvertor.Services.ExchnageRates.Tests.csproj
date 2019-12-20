@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CryptoConvertor.Services.ExchnageRates\CryptoConvertor.Services.ExchnageRates.csproj" />
+    <ProjectReference Include="..\CryptocurrencyConverter.Common\CryptocurrencyConverter.Common.csproj" />
   </ItemGroup>
 
 </Project>

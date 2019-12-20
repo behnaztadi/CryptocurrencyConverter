@@ -3,7 +3,8 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using CryptoConvertor.Services.ExchnageRates.Application;
 using CryptoConvertor.Services.ExchnageRates.Application.Implementation;
-using CryptoConvertor.Services.ExchnageRates.Infra;
+using CryptocurrencyConverter.Common;
+using CryptocurrencyConverter.Common.Providers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -31,7 +32,7 @@ namespace CryptoConvertor.Services.ExchnageRates
 
             // TODO: extract it as a method 
             var containerBuilder = new ContainerBuilder();
-            containerBuilder.RegisterType<TimeProvider>().As<ITimeProvider>();
+            containerBuilder.RegisterModule(new CommonModule());
             containerBuilder.RegisterType<ExchangeRateApiLoader>().As<IExchangeRateApiLoader>();
             containerBuilder.RegisterType<ExchangeRateLoaderService>().As<IExchangeRateLoaderService>();
             containerBuilder.Populate(services);

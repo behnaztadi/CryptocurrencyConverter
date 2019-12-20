@@ -1,6 +1,5 @@
 ﻿using CryptoConvertor.Services.ExchnageRates.Domain.Entities;
-using CryptoConvertor.Services.ExchnageRates.Infra;
-using Microsoft.Extensions.Configuration;
+using CryptocurrencyConverter.Common.Providers;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.Linq;

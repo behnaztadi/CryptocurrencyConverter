@@ -1,6 +1,6 @@
 ﻿
 using CryptoConvertor.Services.CryptoCurrency.Domain.Exceptions;
-using CryptoConvertor.Services.CryptoCurrency.Infra;
+using CryptocurrencyConverter.Common.Providers;
 using System;
 
 namespace CryptoConvertor.Services.CryptoCurrency.Domain.Entities

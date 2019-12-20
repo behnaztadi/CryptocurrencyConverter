@@ -1,4 +1,4 @@
-﻿using CryptoConvertor.Services.ExchnageRates.Infra;
+﻿using CryptocurrencyConverter.Common.Providers;
 using System;
 using System.Collections.Generic;
 
