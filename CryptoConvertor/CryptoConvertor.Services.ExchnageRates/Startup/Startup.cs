@@ -1,8 +1,9 @@
-﻿using Autofac;
+﻿using System;
+using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using CryptoConvertor.Services.CryptoCurrency.Application;
-using CryptoConvertor.Services.CryptoCurrency.Application.Implementation;
-using CryptoConvertor.Services.CryptoCurrency.Application.Implementation.CryptoCurrencyLoaderService;
+using CryptoConvertor.Services.ExchnageRates.Application;
+using CryptoConvertor.Services.ExchnageRates.Application.Implementation;
+using CryptoConvertor.Services.ExchnageRates.Startup;
 using CryptocurrencyConverter.Common;
 using CryptocurrencyConverter.Common.Providers;
 using Microsoft.AspNetCore.Builder;
@@ -10,9 +11,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
 
-namespace CryptoConvertor.Services.CryptoCurrency
+namespace CryptoConvertor.Services.ExchnageRates
 {
     public class Startup
     {
@@ -31,15 +31,9 @@ namespace CryptoConvertor.Services.CryptoCurrency
                 .AddControllersAsServices()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            // TODO: extract it as a method 
             var containerBuilder = new ContainerBuilder();
-            containerBuilder.RegisterModule(new CommonModule());
-
-            containerBuilder.RegisterType<CryptocurrencyApiLoader>().As<ICryptocurrencyApiLoader>();
-            containerBuilder.RegisterType<CryptoCurrencyLoaderService>().As<ICryptoCurrencyLoaderService>();
-
-            containerBuilder.Populate(services);
-
+            containerBuilder.RegisterAutofac(Configuration, services);
+            
             return new AutofacServiceProvider(containerBuilder.Build());
         }
 
