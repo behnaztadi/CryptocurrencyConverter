@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CryptoConvertor.Services.ExchnageRates.Application;
-using CryptoConvertor.Services.ExchnageRates.Core.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CryptoConvertor.Services.ExchnageRates.Controllers

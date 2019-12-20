@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using CryptoConvertor.Services.CryptoCurrency.Application;
+using CryptoConvertor.Services.CryptoCurrency.Application.Implementation;
+using CryptoConvertor.Services.CryptoCurrency.Application.Implementation.CryptoCurrencyLoaderService;
+using CryptoConvertor.Services.CryptoCurrency.Infra;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -22,9 +28,21 @@ namespace CryptoConvertor.Services.CryptoCurrency
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
+        public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddCors();
+            services.AddMvc()
+                .AddControllersAsServices()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // TODO: extract it as a method 
+            var containerBuilder = new ContainerBuilder();
+            containerBuilder.RegisterType<TimeProvider>().As<ITimeProvider>();
+            containerBuilder.RegisterType<CryptocurrencyApiLoader>().As<ICryptocurrencyApiLoader>();
+            containerBuilder.RegisterType<CryptoCurrencyLoaderService>().As<ICryptoCurrencyLoaderService>();
+            containerBuilder.Populate(services);
+
+            return new AutofacServiceProvider(containerBuilder.Build());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

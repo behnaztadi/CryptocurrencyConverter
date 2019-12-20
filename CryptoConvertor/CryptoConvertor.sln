@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoConvertor.Services.Ex
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoConvertor.Services.ExchnageRates.Tests", "CryptoConvertor.Services.ExchnageRates.Tests\CryptoConvertor.Services.ExchnageRates.Tests.csproj", "{C05C6566-0E17-45F2-87EC-401A4F5001A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoConvertor.Services.CryptoCurrency", "CryptoConvertor.Services.CryptoCurrency\CryptoConvertor.Services.CryptoCurrency.csproj", "{A5D8E7AA-D9ED-4964-B3D7-C0F7DFD96962}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoConvertor.Services.CryptoCurrency", "CryptoConvertor.Services.CryptoCurrency\CryptoConvertor.Services.CryptoCurrency.csproj", "{A5D8E7AA-D9ED-4964-B3D7-C0F7DFD96962}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

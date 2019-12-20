@@ -18,7 +18,18 @@ namespace CryptoConvertor.Services.CryptoCurrency
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>();
+                      WebHost
+                     .CreateDefaultBuilder(args)
+                     .UseContentRoot(Directory.GetCurrentDirectory())
+                     .UseSetting("detailedErrors", "true")
+                     .ConfigureAppConfiguration((hostingContext, config) =>
+                     {
+                         var env = hostingContext.HostingEnvironment;
+
+                         config.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                               .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true, reloadOnChange: true);
+
+                         config.AddEnvironmentVariables();
+                     }).UseStartup<Startup>();
     }
 }
