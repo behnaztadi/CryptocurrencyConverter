@@ -16,7 +16,7 @@ namespace CryptoConvertor.Services.CryptoCurrency.Application.Implementation.Cry
             _TimeProvider = timeProvider;
         }
 
-        public CryptoCurrencyQuote LoadExchangeRates(string cryptoCurrency, string baseCurrency)
+        public CryptoCurrencyQuote LoadCryptocurrency(string cryptoCurrency, string baseCurrency)
         {
             var apiResponce = _CryptocurrencyApiLoader.GetApiResponce(baseCurrency, cryptoCurrency);
             var responce = JsonConvert.DeserializeObject<CryptocurrencyApiResponce>(apiResponce);

@@ -8,6 +8,6 @@ namespace CryptoConvertor.Services.CryptoCurrency.Application
 {
     public interface ICryptoCurrencyLoaderService
     {
-        CryptoCurrencyQuote LoadExchangeRates(string cryptoCurrency, string baseCurrency);
+        CryptoCurrencyQuote LoadCryptocurrency(string cryptoCurrency, string baseCurrency);
     }
 }
