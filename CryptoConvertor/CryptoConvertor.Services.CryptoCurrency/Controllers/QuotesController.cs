@@ -28,7 +28,7 @@ namespace CryptoConvertor.Services.CryptoCurrency.Controllers
         {
             // it could come from UI side
             string baseCurrency = "USD";
-            string[] currenciesToBeLoaded = new string[] { "AUD", "EUR" };
+            string[] currenciesToBeLoaded = new string[] { "AUD", "EUR", "BRL", "GBP" };
 
             var endpoint = await _Bus.GetSendEndpoint(new Uri("rabbitmq://localhost/load_exchange-queue"));
             await endpoint.Send<ILoadExchangeRates>(new LoadExchangeRatesMessage(cryptoCurrency, baseCurrency, currenciesToBeLoaded));

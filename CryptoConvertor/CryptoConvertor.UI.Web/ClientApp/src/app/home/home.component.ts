@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as signalR from '@aspnet/signalr';
+import { QuoteHttpService } from './quote.httpservice';
+import { quoteResultDto } from './model';
 
 @Component({
   selector: 'app-home',
@@ -7,8 +9,21 @@ import * as signalR from '@aspnet/signalr';
 })
 export class HomeComponent implements OnInit {
 
+  public cryptoCurrencies: string[];
+  public selectedCryptoCurrency: string = "";
+  public quotes = [];
+
+  constructor(private quoteHttpService: QuoteHttpService) {
+    // TODO: Load the list from API
+    this.cryptoCurrencies = ["BTC", "ETH", "USDT", "ZEC", "PPC"];
+  }
+
+  onShow(): void {
+    this.quoteHttpService.getQuote(this.selectedCryptoCurrency);
+  } 
+
   ngOnInit(): void {
- 
+
     const connection = new signalR.HubConnectionBuilder()
       .configureLogging(signalR.LogLevel.Information)
       .withUrl("http://localhost:52029/notify")
@@ -21,7 +36,7 @@ export class HomeComponent implements OnInit {
     });
 
     connection.on("BroadcastMessage", (type: string, payload: string) => {
-      console.log(type , payload);
+      this.quotes = JSON.parse(payload);
     });
   }
 }

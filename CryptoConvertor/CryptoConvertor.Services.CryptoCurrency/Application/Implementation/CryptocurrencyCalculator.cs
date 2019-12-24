@@ -33,7 +33,7 @@ namespace CryptoConvertor.Services.CryptoCurrency.Application.Implementation
                 list.Add(new CryptoCurrencyQuote(_TimeProvider)
                 {
                     Price = calculatedPrice,
-                    BaseCurrency = quoteForBaseCurrency.BaseCurrency
+                    BaseCurrency = item.Currency
                 });
             }
 
