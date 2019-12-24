@@ -1,6 +1,7 @@
 ﻿using System;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +30,10 @@ namespace CryptoConvertor.Services.ExchnageRates
             var containerBuilder = new ContainerBuilder();
             containerBuilder.RegisterAutofac(Configuration, services);
 
-            return new AutofacServiceProvider(containerBuilder.Build());
+            var container = containerBuilder.Build();
+            container.Resolve<IBusControl>().Start(); 
+
+            return new AutofacServiceProvider(container);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -21,6 +21,11 @@ namespace CryptoConvertor.Services.CryptoCurrency.Application.Implementation
                 throw new ArgumentException();
 
             List<CryptoCurrencyQuote> list = new List<CryptoCurrencyQuote>();
+            list.Add(new CryptoCurrencyQuote(_TimeProvider) { 
+                BaseCurrency = quoteForBaseCurrency.BaseCurrency,
+                Price = quoteForBaseCurrency.Price
+            });
+
             foreach (var item in exchangeRates)
             {
                 var calculatedPrice = item.Rate * quoteForBaseCurrency.Price;

@@ -44,7 +44,7 @@ namespace CryptoConvertor.Services.CryptoCurrency.Tests.Application
         {
             var actualResult = _sut.Calculate(_Quote, _ExchnageRates);
 
-            Assert.AreEqual(6480, actualResult[0].Price);
+            Assert.AreEqual(6480, actualResult[1].Price);
 
         }
 
@@ -55,12 +55,15 @@ namespace CryptoConvertor.Services.CryptoCurrency.Tests.Application
 
             var actualResult = _sut.Calculate(_Quote, _ExchnageRates);
 
-            Assert.AreEqual(2, actualResult.Count);
+            Assert.AreEqual(3, actualResult.Count);
 
-            var euroQuote = actualResult[0];
+            var usdQuote = actualResult[0];
+            Assert.AreEqual(7200, usdQuote.Price);
+
+            var euroQuote = actualResult[1];
             Assert.AreEqual(6480, euroQuote.Price);
 
-            var audQuote = actualResult[1];
+            var audQuote = actualResult[2];
             Assert.AreEqual(8640, audQuote.Price);
         }
 

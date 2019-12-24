@@ -15,9 +15,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoConvertor.Services.Ex
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoConvertor.Services.CryptoCurrency", "CryptoConvertor.Services.CryptoCurrency\CryptoConvertor.Services.CryptoCurrency.csproj", "{A5D8E7AA-D9ED-4964-B3D7-C0F7DFD96962}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptocurrencyConverter.Common", "CryptocurrencyConverter.Common\CryptocurrencyConverter.Common.csproj", "{9E513CFF-7F84-4A59-BD4B-B8F3C56930E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptocurrencyConverter.Common", "CryptocurrencyConverter.Common\CryptocurrencyConverter.Common.csproj", "{9E513CFF-7F84-4A59-BD4B-B8F3C56930E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoConvertor.Services.CryptoCurrency.Tests", "CryptoConvertor.Services.CryptoCurrency.Tests\CryptoConvertor.Services.CryptoCurrency.Tests.csproj", "{62B13C21-C982-4231-ABD7-4A5967A9F5F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoConvertor.Services.CryptoCurrency.Tests", "CryptoConvertor.Services.CryptoCurrency.Tests\CryptoConvertor.Services.CryptoCurrency.Tests.csproj", "{62B13C21-C982-4231-ABD7-4A5967A9F5F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{A17E1561-D2B7-427F-893B-ADD3C389CC65}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoConvertor.Infa.Messaging.Contracts", "CryptoConvertor.Infa.Messaging.Contracts\CryptoConvertor.Infa.Messaging.Contracts.csproj", "{97C26BD7-6918-499C-8B26-C074109C417F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{F5FD42ED-038C-4C33-BF83-3B54A70D619B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoConvertor.Infa.Messaging.RabbitMq.Configuration", "CryptoConvertor.Infa.Messaging.RabbitMq\CryptoConvertor.Infa.Messaging.RabbitMq.Configuration.csproj", "{5513892F-E549-4C99-87F8-99C623FB1CDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +53,14 @@ Global
 		{62B13C21-C982-4231-ABD7-4A5967A9F5F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62B13C21-C982-4231-ABD7-4A5967A9F5F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62B13C21-C982-4231-ABD7-4A5967A9F5F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97C26BD7-6918-499C-8B26-C074109C417F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{97C26BD7-6918-499C-8B26-C074109C417F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{97C26BD7-6918-499C-8B26-C074109C417F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{97C26BD7-6918-499C-8B26-C074109C417F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5513892F-E549-4C99-87F8-99C623FB1CDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5513892F-E549-4C99-87F8-99C623FB1CDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5513892F-E549-4C99-87F8-99C623FB1CDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5513892F-E549-4C99-87F8-99C623FB1CDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +71,8 @@ Global
 		{A5D8E7AA-D9ED-4964-B3D7-C0F7DFD96962} = {824A4BEC-66CB-44CC-951E-809B9C39B5CF}
 		{9E513CFF-7F84-4A59-BD4B-B8F3C56930E7} = {07FEE36C-6F2C-4EB6-85A3-0EC8E8ACDC37}
 		{62B13C21-C982-4231-ABD7-4A5967A9F5F9} = {431BD958-7C80-412C-BFF2-59A5F607BE6C}
+		{97C26BD7-6918-499C-8B26-C074109C417F} = {A17E1561-D2B7-427F-893B-ADD3C389CC65}
+		{5513892F-E549-4C99-87F8-99C623FB1CDA} = {A17E1561-D2B7-427F-893B-ADD3C389CC65}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A5E52D8-B57F-4DDE-BA39-315E7EA38A1D}
