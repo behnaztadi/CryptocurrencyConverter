@@ -1,4 +1,5 @@
 ﻿using CryptoConvertor.Services.ExchnageRates.Domain.Entities;
+using CryptoConvertor.Services.ExchnageRates.Infrastructure.ExchangeApi;
 using CryptocurrencyConverter.Common.Providers;
 using Newtonsoft.Json;
 using System.Collections.Generic;

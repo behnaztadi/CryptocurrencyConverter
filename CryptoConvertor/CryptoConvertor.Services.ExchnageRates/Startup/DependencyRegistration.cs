@@ -5,6 +5,7 @@ using CryptoConvertor.Infa.Messaging.RabbitMq;
 using CryptoConvertor.Services.ExchnageRates.Application;
 using CryptoConvertor.Services.ExchnageRates.Application.Implementation;
 using CryptoConvertor.Services.ExchnageRates.Domain.Entities;
+using CryptoConvertor.Services.ExchnageRates.Infrastructure.ExchangeApi;
 using CryptocurrencyConverter.Common;
 using CryptocurrencyConverter.Common.Providers;
 using MassTransit;

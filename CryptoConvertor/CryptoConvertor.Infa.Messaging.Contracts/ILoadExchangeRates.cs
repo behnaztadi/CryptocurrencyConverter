@@ -7,6 +7,9 @@ namespace CryptoConvertor.Infa.Messaging.Contracts
     public interface ILoadExchangeRates
     {
         string BaseCurrency { get; }
+
+        string CryptoCurrency { get; }
+
         string[] CurrenciesToLoad { get; }
     }
 }

@@ -1,10 +1,5 @@
 ﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using CryptoConvertor.Services.CryptoCurrency.Application;
-using CryptoConvertor.Services.CryptoCurrency.Application.Implementation;
-using CryptoConvertor.Services.CryptoCurrency.Application.Implementation.CryptoCurrencyLoaderService;
-using CryptocurrencyConverter.Common;
-using CryptocurrencyConverter.Common.Providers;
 using MassTransit;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -19,9 +14,13 @@ namespace CryptoConvertor.Services.CryptoCurrency
 {
     public class Startup
     {
+        string _AllowedOrigin = "";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+
+            _AllowedOrigin = Configuration.GetValue<string>("AllowedOrigin");
         }
 
         public IConfiguration Configuration { get; }
@@ -33,7 +32,7 @@ namespace CryptoConvertor.Services.CryptoCurrency
                 builder
                 .AllowAnyMethod()
                 .AllowAnyHeader()
-                .WithOrigins("http://localhost:51069", "http://localhost:4200")
+                .WithOrigins(_AllowedOrigin)
                 .AllowCredentials();
             }));
 

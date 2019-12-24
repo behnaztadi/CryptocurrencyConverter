@@ -1,22 +1,15 @@
 ﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
-using CryptoConvertor.Infa.Messaging.Contracts;
 using CryptoConvertor.Infa.Messaging.RabbitMq;
 using CryptoConvertor.Services.CryptoCurrency.Application;
 using CryptoConvertor.Services.CryptoCurrency.Application.Implementation;
-using CryptoConvertor.Services.CryptoCurrency.Application.Implementation.CryptoCurrencyLoaderService;
-using CryptoConvertor.Services.CryptoCurrency.Domain.Entities;
+using CryptoConvertor.Services.CryptoCurrency.Infrastructure.CryptoCurrencyApi.Implementation;
 using CryptocurrencyConverter.Common;
 using MassTransit;
-using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks;
-using static MassTransit.Logging.OperationName;
 
 namespace CryptoConvertor.Services.CryptoCurrency
 {

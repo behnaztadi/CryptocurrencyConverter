@@ -1,6 +1,8 @@
-﻿namespace CryptoConvertor.Services.ExchnageRates.Domain.Entities
+﻿using CryptoConvertor.Services.ExchnageRates.Domain.Exceptions;
+
+namespace CryptoConvertor.Services.ExchnageRates.Domain.Entities
 {
-    public class Currency 
+    public class Currency
     {
         public Currency(string code)
         {
