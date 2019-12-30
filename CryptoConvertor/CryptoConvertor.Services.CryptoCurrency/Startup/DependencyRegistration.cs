@@ -24,7 +24,7 @@ namespace CryptoConvertor.Services.CryptoCurrency
             builder.RegisterType<CryptocurrencyCalculator>().As<ICryptocurrencyCalculator>();
 
             builder.RegisterConsumers(Assembly.GetExecutingAssembly());
-            ConfigureBus(builder,configuration);
+            ConfigureBus(builder, configuration);
 
             builder.Populate(services);
         }
@@ -32,20 +32,16 @@ namespace CryptoConvertor.Services.CryptoCurrency
         // TDOO: Move to messaging and infrastructure 
         private static void ConfigureBus(ContainerBuilder builder, IConfiguration configuration)
         {
-            var connection= new RabbitMqConnection();
-            configuration.GetSection("RabbitMqConnection").Bind(connection);
+            var rabbitMqConfiguration = new RabbitMqConfiguration();
+            configuration.GetSection("RabbitMqConnection").Bind(rabbitMqConfiguration);
 
             builder.Register(context =>
             {
                 return Bus.Factory.CreateUsingRabbitMq(config =>
                 {
-                    var host = config.Host(new Uri(connection.HostName), h =>
-                    {
-                        h.Username(connection.UserName);
-                        h.Password(connection.Password);
-                    });
+                    var host = config.Host(new Uri(rabbitMqConfiguration.Uri), h => { });
 
-                    config.ReceiveEndpoint(host, "exchange_loaded", ep =>
+                    config.ReceiveEndpoint(host, rabbitMqConfiguration.ExchangeLoadedQueueName, ep =>
                     {
                         ep.LoadFrom(context);
                     });

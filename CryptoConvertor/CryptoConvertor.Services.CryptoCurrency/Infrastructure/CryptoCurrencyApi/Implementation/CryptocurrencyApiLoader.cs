@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,7 +10,12 @@ namespace CryptoConvertor.Services.CryptoCurrency.Infrastructure.CryptoCurrencyA
 {
     public class CryptocurrencyApiLoader : ICryptocurrencyApiLoader
     {
-        string _ApiKey = "16187df9-bb5a-4f41-865b-d90cd26f1701";
+        public CryptocurrencyApiLoader(IConfiguration configuration)
+        {
+            _ApiKey = configuration.GetValue<string>("CryptoConvertorApiKey");
+        }
+
+        string _ApiKey;
 
         public string GetApiResponce(string baseCurrency, string cryptoCurrensy)
         {

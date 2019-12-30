@@ -1,8 +1,10 @@
 ﻿using CryptoConvertor.Infa.Messaging.Contracts;
+using CryptoConvertor.Infa.Messaging.RabbitMq;
 using CryptoConvertor.Services.ExchnageRates.Application;
 using CryptoConvertor.Services.ExchnageRates.Domain.Entities;
 using CryptocurrencyConverter.Common.Providers;
 using MassTransit;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,12 +17,14 @@ namespace CryptoConvertor.Services.ExchnageRates.Infrastructure.Messaging
         IBusControl _Bus;
         IExchangeRateLoaderService _ExchangeRateLoaderService;
         ITimeProvider _TimeProvider;
+        IConfiguration _Configuration;
 
-        public ExchnageLoadedConsumer(IBusControl bus, IExchangeRateLoaderService exchangeRateLoaderService, ITimeProvider timeProvider)
+        public ExchnageLoadedConsumer(IBusControl bus, IExchangeRateLoaderService exchangeRateLoaderService, ITimeProvider timeProvider, IConfiguration configuration)
         {
             _Bus = bus;
             _ExchangeRateLoaderService = exchangeRateLoaderService;
             _TimeProvider = timeProvider;
+            _Configuration = configuration;
         }
 
         public Task Consume(ConsumeContext<ILoadExchangeRates> context)
@@ -31,7 +35,10 @@ namespace CryptoConvertor.Services.ExchnageRates.Infrastructure.Messaging
 
             var messageToSend = new ExchangeRatesLoaded(context.Message.CryptoCurrency, result.BaseCurrency.Code, result.Rates.ToDictionary(x => x.Currency.Code, x => x.Rate));
 
-            var endpoint = _Bus.GetSendEndpoint(new Uri("rabbitmq://localhost/exchange_loaded"));
+            var rabbitMqConfiguration = new RabbitMqConfiguration();
+            _Configuration.GetSection("RabbitMqConnection").Bind(rabbitMqConfiguration);
+
+            var endpoint = _Bus.GetSendEndpoint(new Uri(rabbitMqConfiguration.ExchangeLoadedQueueNameUri));
             endpoint.Result.Send<ExchangeRatesLoaded>(messageToSend);
 
             return Task.CompletedTask;

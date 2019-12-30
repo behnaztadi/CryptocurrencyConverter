@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
 
     const connection = new signalR.HubConnectionBuilder()
       .configureLogging(signalR.LogLevel.Information)
-      .withUrl("http://localhost:52029/notify")
+      .withUrl("http://localhost:5010/notify")
       .build();
 
     connection.start().then(function () {

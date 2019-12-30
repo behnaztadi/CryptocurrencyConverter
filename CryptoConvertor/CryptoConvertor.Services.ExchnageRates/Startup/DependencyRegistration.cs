@@ -37,24 +37,21 @@ namespace CryptoConvertor.Services.ExchnageRates
         // TDOO: Move to infrastructure 
         private static void ConfigureBus(ContainerBuilder builder, IConfiguration configuration)
         {
-            var connection = new RabbitMqConnection();
-            configuration.GetSection("RabbitMqConnection").Bind(connection);
+            var rabbitMqConfiguration = new RabbitMqConfiguration();
+            configuration.GetSection("RabbitMqConnection").Bind(rabbitMqConfiguration);
 
             builder.Register(context =>
             {
                 return Bus.Factory.CreateUsingRabbitMq(config =>
                 {
-                    var host = config.Host(new Uri(connection.HostName), h =>
-                    {
-                        h.Username(connection.UserName);
-                        h.Password(connection.Password);
-                    });
+                    var host = config.Host(new Uri(rabbitMqConfiguration.Uri), h => { });
 
-                    config.ReceiveEndpoint(host, "load_exchange-queue", ep =>
+                    config.ReceiveEndpoint(host, rabbitMqConfiguration.LoadExchangeQueueName, ep =>
                     {
                         ep.LoadFrom(context);
                     });
                 });
+
             }).As<IBus, IBusControl>().SingleInstance();
         }
     }

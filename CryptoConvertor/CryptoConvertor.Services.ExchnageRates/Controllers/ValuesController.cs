@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CryptoConvertor.Infa.Messaging.RabbitMq;
 using CryptoConvertor.Services.ExchnageRates.Application;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace CryptoConvertor.Services.ExchnageRates.Controllers
 {
@@ -11,6 +13,10 @@ namespace CryptoConvertor.Services.ExchnageRates.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
+        public ValuesController()
+        {
+        }
+
         //
         // It can be an endpoint to load exchange rates, It could be console as well
         //

@@ -1,0 +1,71 @@
+version: '3.5'
+
+services:
+    my_rabbit: # login guest:guest
+      image: rabbitmq:3-management
+      hostname: "my_rabbit"
+      container_name: some-rabbit
+      labels:
+        NAME: "rabbit"
+      ports:
+        - "5672:5672"
+        - "15672:15672"
+      expose:
+        - "5672"
+        - "15672"
+
+    knab_cryptocurrency_api:
+      image: knab_cryptocurrency_api
+      container_name: knab_cryptocurrency_api_app
+      build: 
+        context: .
+        dockerfile: crypto.DockerFile
+      restart: on-failure
+      environment:
+        - RabbitMqConnection__HostName=my_rabbit
+        - RabbitMqConnection__Username=guest
+        - RabbitMqConnection__Password=guest
+        - RabbitMqConnection__VirtualHost=/
+        - RabbitMqConnection__Port=5672
+        - RabbitMqConnection__ExchangeLoadedQueueName=exchange_loaded
+        - RabbitMqConnection__LoadExchangeQueueName=load_exchange-queue
+        - AllowedOrigin=http://localhost:5012
+        - CryptoConvertorApiKey=16187df9-bb5a-4f41-865b-d90cd26f1701
+      ports:
+        - "5010:80"   
+      depends_on:
+        - my_rabbit
+    
+    knab_exchangerates_api:
+      image: knab_exchangerates_api
+      container_name: knab_exchangerates_api_app
+      build: 
+        context: .
+        dockerfile: exchangerates.DockerFile
+      restart: on-failure
+      environment:
+        - RabbitMqConnection__HostName=my_rabbit
+        - RabbitMqConnection__Username=guest
+        - RabbitMqConnection__Password=guest
+        - RabbitMqConnection__Port=5672
+        - RabbitMqConnection__VirtualHost=/
+        - RabbitMqConnection__ExchangeLoadedQueueName=exchange_loaded
+        - RabbitMqConnection__LoadExchangeQueueName=load_exchange-queue
+      ports:
+        - "5011:80"   
+      depends_on:
+        - my_rabbit
+
+
+    knab_web:
+      image: knab_web
+      container_name: knab_web_app
+      build: 
+        context: .
+        dockerfile: web.DockerFile
+      restart: on-failure       
+      ports:
+        - "5012:80"   
+      depends_on:
+        - knab_exchangerates_api
+        - knab_cryptocurrency_api

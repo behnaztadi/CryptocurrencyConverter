@@ -13,7 +13,7 @@ export class QuoteHttpService {
     }
 
     getQuote(cryptoCurrency: string): void {
-        this.http.get<quoteResultDto[]>('http://localhost:52029/api/Quotes?cryptoCurrency=' + cryptoCurrency).subscribe(result => {    
+        this.http.get<quoteResultDto[]>('http://localhost:5010/api/Quotes?cryptoCurrency=' + cryptoCurrency).subscribe(result => {    
 
         }, error => console.error(error));
     }

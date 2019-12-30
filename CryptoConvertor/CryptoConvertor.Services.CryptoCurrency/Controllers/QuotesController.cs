@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CryptoConvertor.Infa.Messaging.Contracts;
+using CryptoConvertor.Infa.Messaging.RabbitMq;
 using CryptoConvertor.Services.CryptoCurrency.Application;
 using CryptoConvertor.Services.CryptoCurrency.Infrastructure.CryptoCurrencyApi.Implementation;
 using CryptoConvertor.Services.CryptoCurrency.Infrastructure.Messaging;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 
 namespace CryptoConvertor.Services.CryptoCurrency.Controllers
 {
@@ -17,20 +19,25 @@ namespace CryptoConvertor.Services.CryptoCurrency.Controllers
     {
         ICryptoCurrencyLoaderService _exchangeRateLoaderService;
         IBus _Bus;
-        public QuotesController(IBus bus, ICryptoCurrencyLoaderService exchangeRateLoaderService)
+        IConfiguration _Configuration;
+
+        public QuotesController(IBus bus, ICryptoCurrencyLoaderService exchangeRateLoaderService, IConfiguration configuration)
         {
             _Bus = bus;
             _exchangeRateLoaderService = exchangeRateLoaderService;
+            _Configuration = configuration;
         }
 
         [HttpGet]
         public async Task Get(string cryptoCurrency)
         {
-            // it could come from UI side
             string baseCurrency = "USD";
             string[] currenciesToBeLoaded = new string[] { "AUD", "EUR", "BRL", "GBP" };
 
-            var endpoint = await _Bus.GetSendEndpoint(new Uri("rabbitmq://localhost/load_exchange-queue"));
+            var rabbitMqConfiguration = new RabbitMqConfiguration();
+            _Configuration.GetSection("RabbitMqConnection").Bind(rabbitMqConfiguration);
+
+            var endpoint = await _Bus.GetSendEndpoint(new Uri(rabbitMqConfiguration.ExchangeLoadedQueueNameUri));
             await endpoint.Send<ILoadExchangeRates>(new LoadExchangeRatesMessage(cryptoCurrency, baseCurrency, currenciesToBeLoaded));
         }
     }

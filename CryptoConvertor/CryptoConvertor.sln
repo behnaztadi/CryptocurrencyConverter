@@ -25,9 +25,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoConvertor.Infa.Messag
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{F5FD42ED-038C-4C33-BF83-3B54A70D619B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoConvertor.Infa.Messaging.RabbitMq.Configuration", "CryptoConvertor.Infa.Messaging.RabbitMq\CryptoConvertor.Infa.Messaging.RabbitMq.Configuration.csproj", "{5513892F-E549-4C99-87F8-99C623FB1CDA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoConvertor.Infa.Messaging.RabbitMq.Configuration", "CryptoConvertor.Infa.Messaging.RabbitMq\CryptoConvertor.Infa.Messaging.RabbitMq.Configuration.csproj", "{5513892F-E549-4C99-87F8-99C623FB1CDA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoConvertor.UI.Web", "CryptoConvertor.UI.Web\CryptoConvertor.UI.Web.csproj", "{7CDD7034-A61D-42A5-8898-610477EF4E88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoConvertor.UI.Web", "CryptoConvertor.UI.Web\CryptoConvertor.UI.Web.csproj", "{7CDD7034-A61D-42A5-8898-610477EF4E88}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
