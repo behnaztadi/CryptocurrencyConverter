@@ -7,6 +7,7 @@ using CryptoConvertor.Infa.Messaging.RabbitMq;
 using CryptoConvertor.Services.CryptoCurrency.Application;
 using CryptoConvertor.Services.CryptoCurrency.Infrastructure.CryptoCurrencyApi.Implementation;
 using CryptoConvertor.Services.CryptoCurrency.Infrastructure.Messaging;
+using CryptoConvertor.Services.CryptoCurrency.Infrastructure.Repositories;
 using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -20,24 +21,26 @@ namespace CryptoConvertor.Services.CryptoCurrency.Controllers
         ICryptoCurrencyLoaderService _exchangeRateLoaderService;
         IBus _Bus;
         IConfiguration _Configuration;
+        IConvertConfigRepository _ConvertConfigRepository
 
-        public QuotesController(IBus bus, ICryptoCurrencyLoaderService exchangeRateLoaderService, IConfiguration configuration)
+        public QuotesController(IBus bus, ICryptoCurrencyLoaderService exchangeRateLoaderService, IConfiguration configuration, IConvertConfigRepository convertConfigRepository)
         {
             _Bus = bus;
             _exchangeRateLoaderService = exchangeRateLoaderService;
             _Configuration = configuration;
+            _ConvertConfigRepository = convertConfigRepository;
         }
 
         [HttpGet]
         public async Task Get(string cryptoCurrency)
         {
-            string baseCurrency = "USD";
-            string[] currenciesToBeLoaded = new string[] { "AUD", "EUR", "BRL", "GBP" };
+            string baseCurrency = _ConvertConfigRepository.GetBaseCurrency();
+            string[] currenciesToBeLoaded = _ConvertConfigRepository.GetCrrenciesToConvert();
 
             var rabbitMqConfiguration = new RabbitMqConfiguration();
             _Configuration.GetSection("RabbitMqConnection").Bind(rabbitMqConfiguration);
 
-            var endpoint = await _Bus.GetSendEndpoint(new Uri(rabbitMqConfiguration.ExchangeLoadedQueueNameUri));
+            var endpoint = await _Bus.GetSendEndpoint(new Uri(rabbitMqConfiguration.LoadExchangeQueueNameUri));
             await endpoint.Send<ILoadExchangeRates>(new LoadExchangeRatesMessage(cryptoCurrency, baseCurrency, currenciesToBeLoaded));
         }
     }

@@ -4,6 +4,7 @@ using CryptoConvertor.Infa.Messaging.RabbitMq;
 using CryptoConvertor.Services.CryptoCurrency.Application;
 using CryptoConvertor.Services.CryptoCurrency.Application.Implementation;
 using CryptoConvertor.Services.CryptoCurrency.Infrastructure.CryptoCurrencyApi.Implementation;
+using CryptoConvertor.Services.CryptoCurrency.Infrastructure.Repositories;
 using CryptocurrencyConverter.Common;
 using MassTransit;
 using Microsoft.Extensions.Configuration;
@@ -21,7 +22,8 @@ namespace CryptoConvertor.Services.CryptoCurrency
 
             builder.RegisterType<CryptocurrencyApiLoader>().As<ICryptocurrencyApiLoader>();
             builder.RegisterType<CryptoCurrencyLoaderService>().As<ICryptoCurrencyLoaderService>();
-            builder.RegisterType<CryptocurrencyCalculator>().As<ICryptocurrencyCalculator>();
+            builder.RegisterType<CryptocurrencyCalculator>().As<ICryptocurrencyCalculator>(); 
+            builder.RegisterType<ConvertConfigRepository>().As<IConvertConfigRepository>(); 
 
             builder.RegisterConsumers(Assembly.GetExecutingAssembly());
             ConfigureBus(builder, configuration);

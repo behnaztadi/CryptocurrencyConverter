@@ -63,13 +63,4 @@ namespace CryptoConvertor.Services.CryptoCurrency
             app.UseMvc();
         }
     }
-
-    public class NotifyHub : Hub<ITypedHubClient>
-    {
-    }
-
-    public interface ITypedHubClient
-    {
-        Task BroadcastMessage(string type, string payload);
-    }
 }

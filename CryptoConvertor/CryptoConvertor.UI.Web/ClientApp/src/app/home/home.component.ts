@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
 
   public cryptoCurrencies: string[];
   public selectedCryptoCurrency: string = "";
-  public quotes = [];
+  public quotes;
 
   constructor(private quoteHttpService: QuoteHttpService) {
     // TODO: Load the list from API
@@ -24,9 +24,10 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // TODO : Move to a seprate service   
     const connection = new signalR.HubConnectionBuilder()
       .configureLogging(signalR.LogLevel.Information)
-      .withUrl("http://localhost:5010/notify")
+        .withUrl("http://localhost:5010/notify")
       .build();
 
     connection.start().then(function () {

@@ -1,25 +1,32 @@
-<h1>Hello!</h1>
-
-<div>
-  <label>Select The Cryptocurrency: </label>
-  <select [(ngModel)]="selectedCryptoCurrency">
-    <option *ngFor="let symbole of cryptoCurrencies" value={{symbole}}>
-      {{symbole}}
-  </select>
-  <button type="button" value="Show The Quote" (click)="onShow()">Show The Quote</button>
-</div>
-<br />
-<br />
-<br />
-<div>
-  <table>
-    <tr>
-      <td>Symbole</td>
-      <td>Price</td>
-    </tr>
-    <tr *ngFor="let quote of quotes">
-      <td>{{quote.BaseCurrency.Code}}</td>
-      <td>{{quote.Price}}</td>
-    </tr>
+<div class="container" style="margin-top: 10px;">
+  <div class="row">
+    <div class="col-3">
+      <label>Select The Cryptocurrency: </label>
+    </div>
+    <div class="col-2">
+      <select [(ngModel)]="selectedCryptoCurrency" style="width: 100%;">
+        <option *ngFor="let symbole of cryptoCurrencies" value={{symbole}}>
+          {{symbole}}
+      </select>
+    </div>
+    <div class="col">
+      <button type="button" value="Show The Quote" class="btn btn-primary" (click)="onShow()">Show The Quote</button>
+    </div>
+  </div>
+  <br />
+  <br />
+  <table class="table table-hover" *ngIf="!!quotes">
+    <thead>
+      <tr>
+        <th>Symbole</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let quote of quotes">
+        <td>{{quote.BaseCurrency.Code}}</td>
+        <td>{{quote.Price}}</td>
+      </tr>
+    </tbody>
   </table>
 </div>
