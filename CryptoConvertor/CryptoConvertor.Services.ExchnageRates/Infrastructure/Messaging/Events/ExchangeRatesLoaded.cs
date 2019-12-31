@@ -15,10 +15,10 @@ namespace CryptoConvertor.Services.ExchnageRates.Infrastructure.Messaging
             CryptoCurrency = cryptoCurrency;
         }
 
-        public string BaseCurrency { get; private set; }
+        public string BaseCurrency { get; }
 
-        public Dictionary<string, decimal> LoadedExchangeRates { get; private set; }
+        public Dictionary<string, decimal> LoadedExchangeRates { get; }
 
-        public string CryptoCurrency { get; private set; }
+        public string CryptoCurrency { get; }
     }
 }

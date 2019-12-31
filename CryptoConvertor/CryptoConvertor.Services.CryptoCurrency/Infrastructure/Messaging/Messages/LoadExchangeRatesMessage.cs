@@ -15,10 +15,10 @@ namespace CryptoConvertor.Services.CryptoCurrency.Infrastructure.Messaging
             CryptoCurrency = cryptoCurrency;
         }
 
-        public string BaseCurrency { get; private set; }
+        public string BaseCurrency { get; }
 
-        public string CryptoCurrency { get; private set; }
+        public string CryptoCurrency { get; }
 
-        public string[] CurrenciesToLoad { get; private set; }
+        public string[] CurrenciesToLoad { get; }
     }
 }

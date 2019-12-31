@@ -21,7 +21,7 @@ namespace CryptoConvertor.Services.CryptoCurrency.Controllers
         ICryptoCurrencyLoaderService _exchangeRateLoaderService;
         IBus _Bus;
         IConfiguration _Configuration;
-        IConvertConfigRepository _ConvertConfigRepository
+        IConvertConfigRepository _ConvertConfigRepository;
 
         public QuotesController(IBus bus, ICryptoCurrencyLoaderService exchangeRateLoaderService, IConfiguration configuration, IConvertConfigRepository convertConfigRepository)
         {

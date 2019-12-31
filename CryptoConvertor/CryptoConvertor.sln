@@ -29,6 +29,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoConvertor.Infa.Messag
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CryptoConvertor.UI.Web", "CryptoConvertor.UI.Web\CryptoConvertor.UI.Web.csproj", "{7CDD7034-A61D-42A5-8898-610477EF4E88}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CryptoConvertor.Services.Audit", "CryptoConvertor.Services.Audit\CryptoConvertor.Services.Audit.csproj", "{DA823149-E5A1-4945-9162-2ADB708C48E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FB912E7C-E585-42B1-BAFE-AF16465FB484}"
+	ProjectSection(SolutionItems) = preProject
+		me.json = me.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -67,6 +74,10 @@ Global
 		{7CDD7034-A61D-42A5-8898-610477EF4E88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7CDD7034-A61D-42A5-8898-610477EF4E88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7CDD7034-A61D-42A5-8898-610477EF4E88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA823149-E5A1-4945-9162-2ADB708C48E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA823149-E5A1-4945-9162-2ADB708C48E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA823149-E5A1-4945-9162-2ADB708C48E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA823149-E5A1-4945-9162-2ADB708C48E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -80,6 +91,7 @@ Global
 		{97C26BD7-6918-499C-8B26-C074109C417F} = {A17E1561-D2B7-427F-893B-ADD3C389CC65}
 		{5513892F-E549-4C99-87F8-99C623FB1CDA} = {A17E1561-D2B7-427F-893B-ADD3C389CC65}
 		{7CDD7034-A61D-42A5-8898-610477EF4E88} = {F5FD42ED-038C-4C33-BF83-3B54A70D619B}
+		{DA823149-E5A1-4945-9162-2ADB708C48E4} = {824A4BEC-66CB-44CC-951E-809B9C39B5CF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6A5E52D8-B57F-4DDE-BA39-315E7EA38A1D}

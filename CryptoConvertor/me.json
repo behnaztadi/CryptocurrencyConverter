@@ -1,0 +1,17 @@
+{
+  "name": "Behnaz Tadi",
+  "date-of-birth": "21-09-1986",
+  "hobbies": [ "cooking", "swimming", "reading", "firends" ],
+  "idiologies": [ "know what you dont know", "happy go lucky"],
+  "intrests": [ "Diversity", "Travel", "People"],
+  "skills": {
+    "Web": [ "Javascript", "Typescript", "Angular" ],
+    "Back-end": [ ".Net" ],
+    "cloud": ["Azure"]
+  },
+  "2020_resulotions": [
+    "Relocate to Netherlands",
+    "Learn Dutch",
+    "More smile and less stress"
+  ]
+}

@@ -16,6 +16,6 @@ namespace CryptoConvertor.Services.ExchnageRates.Domain.Entities
 
         public List<ExchangeRateItem> Rates { get; set; }
 
-        public DateTime Date { get; private set; }
+        public DateTime Date { get; }
     }
 }

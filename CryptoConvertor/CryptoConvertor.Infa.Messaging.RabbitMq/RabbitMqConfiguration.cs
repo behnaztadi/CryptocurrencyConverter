@@ -12,31 +12,13 @@ namespace CryptoConvertor.Infa.Messaging.RabbitMq
         public string VirtualHost { get; set; }
         public string Port { get; set; }
 
-        public string Uri
-        {
-            get
-            {
-                return $"rabbitmq://{UserName}:{Password}@{HostName}:{Port}";
-            }
-        }
+        public string Uri => $"rabbitmq://{UserName}:{Password}@{HostName}:{Port}";
 
         public string ExchangeLoadedQueueName { get; set; }
         public string LoadExchangeQueueName { get; set; }
 
-        public string ExchangeLoadedQueueNameUri
-        {
-            get
-            {
-                return $"rabbitmq://{HostName}/{ExchangeLoadedQueueName}";
-            }
-        }
+        public string ExchangeLoadedQueueNameUri => $"rabbitmq://{HostName}/{ExchangeLoadedQueueName}";
 
-        public string LoadExchangeQueueNameUri
-        {
-            get
-            {
-                return $"rabbitmq://{HostName}/{LoadExchangeQueueName}";
-            }
-        }
+        public string LoadExchangeQueueNameUri => $"rabbitmq://{HostName}/{LoadExchangeQueueName}";
     }
 }

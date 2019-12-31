@@ -15,7 +15,7 @@ namespace CryptoConvertor.Services.CryptoCurrency.Domain.Entities
         public Currency BaseCurrency { get; set; }
 
 
-        public DateTime Date { get; private set; }
+        public DateTime Date { get; }
 
         public decimal _Price;
         public decimal Price
